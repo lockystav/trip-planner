@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
@@ -8,7 +8,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import HotelIcon from '@mui/icons-material/Hotel';
 import PollIcon from '@mui/icons-material/Poll';
 
-export default function NavBar() {
+export default function BottomNav() {
   const [value, setValue] = useState(0);
 
   return (
@@ -17,31 +17,31 @@ export default function NavBar() {
 		onChange={(event, newValue) => {
 			setValue(newValue);
 		}}
-		style={{ position: 'fixed', bottom: 0, width: '100%' }}
+		style={{ position: 'fixed', bottom: 0, width: '100%', borderTop: '0.5px solid #ccc' }}
 	>
 		<BottomNavigationAction 
 			label="Home"
 			icon={<HomeIcon />}
 			component={Link}
-			to='/'
+			to=''
 		/>
 		<BottomNavigationAction
 			label="Board"
 			icon={<DashboardIcon />}
 			component={Link}
-			to="/board"
+			to="board"
 		/>
 		<BottomNavigationAction
 			label="Accomodation"
 			icon={<HotelIcon />}
 			component={Link}
-			to="/accomodation"
+			to="accomodation"
 		/>
 		<BottomNavigationAction
 			label="Polls"
 			icon={<PollIcon />}
 			component={Link}
-			to="/polls"
+			to="polls"
 		/>
 	</BottomNavigation>
   );

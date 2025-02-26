@@ -1,4 +1,5 @@
-import React, { createContext, ReactNode, useState } from "react";
+import React, { createContext, ReactNode, useEffect, useState } from "react";
+import { useLocation } from "react-router";
 
 interface NavContextProps {
 	title: string;
@@ -15,9 +16,16 @@ const NavContext = createContext<NavContextProps | undefined>(undefined);
 
 export const NavProvider: React.FC<{children: ReactNode}> = ({children}) => {
 	const [showTitle, setShowTitle] = useState(false);
-	const [showAccount, setShowAccount] = useState(true);
-	const [showDrawer, setShowDrawer] = useState(true);
+	const [showAccount, setShowAccount] = useState(false);
+	const [showDrawer, setShowDrawer] = useState(false);
 	const [title, setTitle] = useState('Trip Planner');
+	const location = useLocation();
+
+	useEffect(() => {
+		setShowTitle(false);
+		setShowAccount(false);
+		setShowDrawer(false);
+	}, [location]);
 
 
 	return (

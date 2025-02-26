@@ -22,7 +22,7 @@ const TopNav: React.FC<TopNavProps> = ({title, showTitle, showAccount, showDrawe
 	};
 
 	const DrawerInside = (
-		<Box sx={{ width: '45vw'}}>
+		<Box sx={{ width: '45vw', maxWidth: '360px' }}>
 			<Typography variant="h6" align="center" sx={{ my: 2 }}>
 				Manage Trip
 			</Typography>

@@ -54,6 +54,8 @@ title: {
 	color: 'grey',
     fontSize: '2rem',
     marginBottom: '1rem',
+	textTransform: 'uppercase',
+	fontWeight: 'bold',
 },
 dropdownContainer: {
 	display: 'flex',
@@ -61,14 +63,6 @@ dropdownContainer: {
     padding: '0.5rem 1rem',
     borderRadius: '100px',
     marginTop: '1rem',
-},
-arrow: {
-	width: 0,
-    height: 0,
-    borderLeft: '6px solid transparent',
-    borderRight: '6px solid transparent',
-    borderTop: '6px solid white',
-    marginRight: '0.5rem',
 },
 dropdown: {
 	border: 'none',

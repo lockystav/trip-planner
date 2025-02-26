@@ -5,10 +5,17 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Box, Drawer, ListItem, ListItemButton, ListItemText, Divider } from '@mui/material';
-import { AccountCircleOutlined, Inbox } from '@mui/icons-material';
+import { AccountCircleOutlined } from '@mui/icons-material';
 
-export default function TopNav() {
+interface TopNavProps {
+	showTitle: boolean;
+	showAccount: boolean;
+	showDrawer: boolean;
+}
+
+const TopNav: React.FC<TopNavProps> = ({showTitle, showAccount, showDrawer}) => {
 	const [drawerOpen, setDrawerOpen] = useState(false);
+	
 	const toggleDrawer = (open: boolean) => () => {
 		setDrawerOpen(open);
 	};
@@ -36,22 +43,33 @@ export default function TopNav() {
 	<>
 	<AppBar sx={{ backgroundColor: 'white', color: 'black' }} position="static">
 		<Toolbar>
-			<IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
-				<MenuIcon />
-			</IconButton>
+			{/* Left side of the nav bar */}
+			{showDrawer && (
+				<IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
+					<MenuIcon />
+				</IconButton>
+			)}
+			{showTitle && (
+					<Typography variant="h6" sx={{ flexGrow: 1 }}>
+						Trip Planner
+					</Typography>
+			)}
+
 			<Typography variant="h5" sx={{ flexGrow: 1 }}>
-				
 			</Typography>
-			<IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                color="inherit"
-                sx={{ fontSize: 30 }} // Increase the size of the icon
-              >
-                <AccountCircleOutlined fontSize="inherit" />
-              </IconButton>
+			
+			{showAccount && (
+				<IconButton
+					size="large"
+					aria-label="account of current user"
+					aria-controls="menu-appbar"
+					aria-haspopup="true"
+					color="inherit"
+					sx={{ fontSize: 30 }}
+				>
+					<AccountCircleOutlined fontSize="inherit" />
+				</IconButton>
+			)}
 		</Toolbar>
 	</AppBar>
 	<Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
@@ -60,3 +78,5 @@ export default function TopNav() {
 </>
   );
 }
+
+export default TopNav;

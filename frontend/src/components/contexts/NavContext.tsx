@@ -1,6 +1,8 @@
 import React, { createContext, ReactNode, useState } from "react";
 
 interface NavContextProps {
+	title: string;
+	setTitle: (title: string) => void;
 	showTitle: boolean;
 	setShowTitle: (showTitle: boolean) => void;
 	showAccount: boolean;
@@ -15,9 +17,11 @@ export const NavProvider: React.FC<{children: ReactNode}> = ({children}) => {
 	const [showTitle, setShowTitle] = useState(false);
 	const [showAccount, setShowAccount] = useState(true);
 	const [showDrawer, setShowDrawer] = useState(true);
+	const [title, setTitle] = useState('Trip Planner');
+
 
 	return (
-		<NavContext.Provider value={{showTitle, setShowTitle, showAccount, setShowAccount, showDrawer, setShowDrawer}}>
+		<NavContext.Provider value={{title, setTitle, showTitle, setShowTitle, showAccount, setShowAccount, showDrawer, setShowDrawer}}>
 			{children}
 		</NavContext.Provider>
 	)

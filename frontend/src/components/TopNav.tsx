@@ -8,12 +8,13 @@ import { Box, Drawer, ListItem, ListItemButton, ListItemText, Divider } from '@m
 import { AccountCircleOutlined } from '@mui/icons-material';
 
 interface TopNavProps {
+	title: string;
 	showTitle: boolean;
 	showAccount: boolean;
 	showDrawer: boolean;
 }
 
-const TopNav: React.FC<TopNavProps> = ({showTitle, showAccount, showDrawer}) => {
+const TopNav: React.FC<TopNavProps> = ({title, showTitle, showAccount, showDrawer}) => {
 	const [drawerOpen, setDrawerOpen] = useState(false);
 	
 	const toggleDrawer = (open: boolean) => () => {
@@ -51,13 +52,13 @@ const TopNav: React.FC<TopNavProps> = ({showTitle, showAccount, showDrawer}) => 
 			)}
 			{showTitle && (
 					<Typography variant="h6" sx={{ flexGrow: 1 }}>
-						Trip Planner
+						{title}
 					</Typography>
 			)}
 
 			<Typography variant="h5" sx={{ flexGrow: 1 }}>
 			</Typography>
-			
+
 			{showAccount && (
 				<IconButton
 					size="large"

@@ -1,14 +1,14 @@
 import { Outlet } from "react-router";
 import BottomNav from "../components/BottomNav";
 import TopNav from "../components/TopNav";
-import { NavProvider, useNavContext } from "../components/NavContext";
+import { NavProvider, useNavContext } from "../components/contexts/NavContext";
 import React from "react";
 
 const MainScreenLayout: React.FC = () => {
-	const {showTitle, showAccount, showDrawer} = useNavContext();
+	const {title, showTitle, showAccount, showDrawer} = useNavContext();
 	return (
 		<>
-			<TopNav showTitle={showTitle} showAccount={showAccount} showDrawer={showDrawer}/>
+			<TopNav title={title} showTitle={showTitle} showAccount={showAccount} showDrawer={showDrawer}/>
 				<Outlet />
 			<BottomNav />
 		</>

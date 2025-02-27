@@ -47,7 +47,7 @@ const TopNav: React.FC<TopNavProps> = ({title, showTitle, showAccount, showDrawe
 			{/* Left side of the nav bar */}
 			{showDrawer && (
 				<IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
-					<MenuIcon />
+					<MenuIcon fontSize='large'/>
 				</IconButton>
 			)}
 			{showTitle && (
@@ -68,7 +68,7 @@ const TopNav: React.FC<TopNavProps> = ({title, showTitle, showAccount, showDrawe
 					color="inherit"
 					sx={{ fontSize: 30 }}
 				>
-					<AccountCircleOutlined fontSize="inherit" />
+					<AccountCircleOutlined fontSize="large" />
 				</IconButton>
 			)}
 		</Toolbar>

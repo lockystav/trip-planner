@@ -1,20 +1,21 @@
-import { ArrowDropDown } from '@mui/icons-material';
 import React, { useState } from 'react';
+import { ArrowDropDown } from '@mui/icons-material';
+import { Select, MenuItem, FormControl, SelectChangeEvent } from '@mui/material';
 
 const HeroBanner: React.FC = () => {
-  const [status, setStatus] = useState('going');
+  const [status, setStatus] = useState('Going');
 
-  const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setStatus(event.target.value);
+  const handleStatusChange = (event: SelectChangeEvent<string>) => {
+    setStatus(event.target.value as string);
   };
 
   const getStatusColor = () => {
     switch (status) {
-      case 'going':
+      case 'Going':
         return ['limegreen', 'white'];
-      case 'maybe':
+      case 'Maybe':
         return ['yellow', 'black'];
-      case 'not-going':
+      case 'Not Going':
         return ['red', 'white'];
       default:
         return ['grey', 'white'];
@@ -24,18 +25,18 @@ const HeroBanner: React.FC = () => {
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>Trip Planner</h1>
-      <div style={{ ...styles.dropdownContainer, backgroundColor: getStatusColor()[0] }}>
-        <ArrowDropDown sx={{color:getStatusColor()[1],  marginLeft: '-0.35rem'}}/>
-        <select
+      <FormControl size="small" style={{ ...styles.selectContainer, backgroundColor: getStatusColor()[0] }}>
+        <Select
           value={status}
           onChange={handleStatusChange}
-          style={{ ...styles.dropdown, color: getStatusColor()[1] }}
+		  sx={{minWidth: 120, color: getStatusColor()[1], borderRadius: 100, textAlign: 'center'}}
+          IconComponent={ArrowDropDown}
         >
-          <option value="going">Going</option>
-          <option value="not-going">Not Going</option>
-          <option value="maybe">Maybe</option>
-        </select>
-      </div>
+          <MenuItem value={"Going"}>Going</MenuItem>
+          <MenuItem value={"Not Going"}>Not Going</MenuItem>
+          <MenuItem value={"Maybe"}>Maybe</MenuItem>
+        </Select>
+      </FormControl>
     </div>
   );
 };
@@ -49,29 +50,20 @@ const styles: { [key: string]: React.CSSProperties } = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-},
-title: {
-	color: 'grey',
-    fontSize: '2rem',
-    marginBottom: '1rem',
-	textTransform: 'uppercase',
-	fontWeight: 'bold',
-},
-dropdownContainer: {
-	display: 'flex',
+  },
+  title: {
+    color: 'grey',
+    fontSize: '1.8rem',
+    textTransform: 'uppercase',
+    fontWeight: '600',
+    paddingTop: '1rem',
+  },
+  selectContainer: {
+    display: 'flex',
     alignItems: 'center',
-    padding: '0.5rem 1rem',
     borderRadius: '100px',
     marginTop: '1rem',
-},
-dropdown: {
-	border: 'none',
-    background: 'none',
-	textAlign: 'center',
-    fontSize: '1rem',
-    appearance: 'none',
-    padding: 0,
-},
+  },
 };
 
 export default HeroBanner;

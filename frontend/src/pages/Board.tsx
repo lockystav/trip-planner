@@ -1,13 +1,12 @@
 import React from 'react';
+import Post from '../components/Post';
 
 const Board: React.FC = () => {
-
-    return (
-        <div>
-            <h1>Board</h1>
-            <p>This is the board page where you can manage your trip plans.</p>
-        </div>
-    );
+  return (
+    <div className="pt-5 px-[10%] flex justify-between flex-col items-center">
+      <Post />
+    </div>
+  );
 };
 
 export default Board;

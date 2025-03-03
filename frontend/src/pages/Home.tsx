@@ -1,17 +1,10 @@
-import React, { useEffect } from 'react';
-import { useNavContext } from '../components/contexts/NavContext';
+import React from 'react';
 import HeroBanner from '../components/HeroBanner';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { Divider } from '@mui/material';
-import { Margin, PlaceOutlined } from '@mui/icons-material';
+import { PlaceOutlined } from '@mui/icons-material';
 
 const Home: React.FC = () => {
-	const { setShowDrawer, setShowAccount } = useNavContext();
-
-	useEffect(() => {
-		setShowDrawer(true);
-		setShowAccount(true);
-	}, [setShowDrawer, setShowAccount]);
 
   return (
     <div>

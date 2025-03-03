@@ -1,13 +1,6 @@
-import React, { useEffect } from 'react';
-import { useNavContext } from '../components/contexts/NavContext';
+import React from 'react';
 
 const Polls: React.FC = () => {
-	const { setShowTitle, setShowAccount } = useNavContext();
-
-	useEffect(() => {
-		setShowTitle(true);
-		setShowAccount(true);
-	}, [setShowTitle, setShowAccount]);
 
     return (
         <div>

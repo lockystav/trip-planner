@@ -22,9 +22,33 @@ export const NavProvider: React.FC<{children: ReactNode}> = ({children}) => {
 	const location = useLocation();
 
 	useEffect(() => {
-		setShowTitle(false);
-		setShowAccount(false);
-		setShowDrawer(false);
+		switch (location.pathname) {
+			case '/':
+				setShowDrawer(true);
+				setShowAccount(true);
+				setShowTitle(false);
+				break;
+			case '/board':
+				setShowTitle(true);
+				setShowAccount(true);
+				setShowDrawer(false);
+				break;
+			case '/accomodation':
+				setShowTitle(true);
+				setShowAccount(true);
+				setShowDrawer(false);
+				break;
+			case '/polls':
+				setShowTitle(true);
+				setShowAccount(true);
+				setShowDrawer(false);
+				break;
+			default:
+				setShowDrawer(true);
+				setShowAccount(true);
+				setShowTitle(false);
+				break;
+		}
 	}, [location]);
 
 

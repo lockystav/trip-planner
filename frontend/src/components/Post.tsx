@@ -19,7 +19,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
   const { content, likes, comments, liked } = post;
 
   return (
-    <div className='my-3 max-w-[1000px] w-[95%] p-[10px] border border-gray-300 rounded-xl flex flex-col justify-between'>
+    <div className='my-3 max-w-[1000px] w-[95%] py-2.5 px-6 border border-gray-300 rounded-xl flex flex-col justify-between'>
       <div className='flex justify-between items-center'>
         <AccountCircleOutlined fontSize='large' className='text-gray-500' />
         <IconButton className='p-1'>
@@ -33,7 +33,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
       <div className='flex justify-between items-center pt-1 px-[10%]'>
         <div className='flex items-center'>
           <IconButton>
-            {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+            {liked ? <FavoriteIcon sx={{ color: 'red' }} /> : <FavoriteBorderIcon />}
           </IconButton>
           <span className='ml-1 text-lg w-6'>{likes > 0 ? likes : ''}</span>
         </div>

@@ -46,7 +46,7 @@ const Home: React.FC = () => {
 			</div>
 
 			{/* Info */}
-			<div className="max-w-[1200px] w-full">
+			<div className="max-w-[1200px] w-full mb-7">
 				<div className="uppercase font-semibold">
 					<h2 className="text-3xl tracking-widest mb-5">
 						Info:
